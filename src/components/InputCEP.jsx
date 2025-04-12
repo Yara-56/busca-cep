@@ -1,4 +1,4 @@
-// Componente InputCEP.jsx responsivo (mobile first)
+// Componente InputCEP.jsx com máscara, mobile-first, animação e pattern corrigido
 import React, { useEffect, useRef } from 'react';
 import IMask from 'imask';
 import { FaSearchLocation } from 'react-icons/fa';
@@ -36,7 +36,7 @@ const InputCEP = ({ cep, setCep, onBuscar, carregando }) => {
           ref={inputRef}
           type="tel"
           inputMode="numeric"
-          pattern="[0-9]*"
+          pattern="\d{5}-\d{3}"
           className="w-full sm:flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Ex: 30140-071"
           required
