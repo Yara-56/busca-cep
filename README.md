@@ -6,7 +6,7 @@ Aplicação simples e responsiva para consultar endereços a partir de um CEP (B
 
 🚀 Acesse o projeto
 
-🔗 **[Clique aqui para acessar a versão online](https://busca-cep-blond.vercel.app)**
+🔗 [Clique aqui para acessar a versão online](https://busca-cep-blond.vercel.app)**
 
 ---
 
