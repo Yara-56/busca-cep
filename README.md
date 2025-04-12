@@ -1,35 +1,44 @@
-🔍 Busca CEP · React + ViaCEP
+# 📦 Busca CEP
 
-Aplicação simples e responsiva para consultar endereços a partir de um CEP (Brasil), utilizando a API pública do ViaCEP.
+Projeto React simples e profissional que permite consultar endereços a partir do número do CEP, utilizando a API pública do ViaCEP.
 
----
-
-🚀 Acesse o projeto
-
-🔗 [Clique aqui para acessar a versão online](https://busca-cep-blond.vercel.app)**
+![preview](https://busca-cep-blond.vercel.app/preview.png) <!-- Adicione imagem do site aqui, se desejar -->
 
 ---
 
-✨ Funcionalidades
+## 🔗 Acesse o site
 
-✔️ Input com máscara e validação (apenas 8 dígitos numéricos)  
-✔️ Requisição à API ViaCEP  
-✔️ Exibição automática dos campos:  
-  📍 Logradouro  
-  📍 Complemento  
-  📍 Bairro  
-  📍 Cidade  
-  📍 Estado  
-✔️ Feedback de erro caso o CEP seja inválido ou não encontrado  
-✔️ Interface limpa e responsiva  
+👉 [Clique aqui para acessar o site ao vivo](https://busca-cep-blond.vercel.app)
 
 ---
 
-🧪 Como rodar localmente
+## 🧠 Funcionalidades
+
+- 🔍 Busca de endereço pelo número do CEP (com validação)
+- 🎯 Máscara automática no input (`00000-000`)
+- ⚡ Feedback visual durante a busca (carregamento)
+- 💾 Copiar endereço para a área de transferência
+- 💡 Mensagens de erro amigáveis
+- 📱 Responsivo e otimizado para dispositivos móveis
+- 💅 Layout moderno com Tailwind CSS + animações suaves
+
+---
+
+## 🛠️ Tecnologias
+
+- [React 18](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [IMask.js](https://imask.js.org/)
+- [ViaCEP API](https://viacep.com.br/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+---
+
+## 🚀 Como rodar localmente
 
 ```bash
 # Clone o repositório
-git clone https://github.com/Yara-56/busca-cep.git
+git clone https://github.com/seu-usuario/busca-cep.git
 
 # Acesse a pasta
 cd busca-cep

@@ -8,20 +8,23 @@ function App() {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
 
   const buscarCep = async () => {
     const cepLimpo = cep.replace(/\D/g, '');
-  
+
     if (!/^\d{8}$/.test(cepLimpo)) {
       setErro('CEP inválido. Digite exatamente 8 números.');
       setEndereco(null);
       return;
     }
-  
+
+    setCarregando(true);
+
     try {
       const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
       const data = await response.json();
-  
+
       if (data.erro) {
         setErro('CEP não encontrado.');
         setEndereco(null);
@@ -33,11 +36,13 @@ function App() {
       setErro('Erro ao buscar o CEP. Verifique sua conexão.');
       setEndereco(null);
     }
-  };  
+
+    setCarregando(false);
+  };
 
   return (
     <main className="min-h-screen flex flex-col justify-center items-center bg-gray-100 px-4">
-      <section className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+      <section className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 transition-all duration-500 ease-in-out transform hover:shadow-xl">
         <header className="mb-4 text-center">
           <h1 className="text-3xl font-extrabold text-indigo-600 tracking-wide drop-shadow-sm">
             📦 Localize seu Endereço pelo CEP
@@ -59,7 +64,7 @@ function App() {
           </p>
         </header>
 
-        <InputCEP cep={cep} setCep={setCep} onBuscar={buscarCep} />
+        <InputCEP cep={cep} setCep={setCep} onBuscar={buscarCep} carregando={carregando} />
 
         {erro && <MensagemErro texto={erro} />}
         {endereco && <Resultado endereco={endereco} />}

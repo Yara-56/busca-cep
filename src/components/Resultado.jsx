@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaClipboard } from 'react-icons/fa';
+import { FaClipboard, FaCheck } from 'react-icons/fa';
 
 const Resultado = ({ endereco }) => {
   const [copiado, setCopiado] = useState(false);
@@ -19,8 +19,11 @@ Estado: ${endereco.uf}
   };
 
   return (
-    <section className="mt-6 bg-indigo-50 p-5 rounded-xl shadow-md text-sm text-gray-800 space-y-2">
-      <h2 className="text-base font-semibold text-indigo-700 mb-2">📬 Resultado</h2>
+    <section className="mt-6 bg-indigo-50 p-5 rounded-xl shadow-md text-sm text-gray-800 animate-fade-in transition-all duration-500 ease-in-out">
+      <h2 className="text-base font-semibold text-indigo-700 mb-3">
+        📬 Resultado da Busca
+      </h2>
+
       <ul className="space-y-1">
         <li><strong>📍 Logradouro:</strong> {endereco.logradouro}</li>
         <li><strong>➕ Complemento:</strong> {endereco.complemento || 'Não informado'}</li>
@@ -28,12 +31,21 @@ Estado: ${endereco.uf}
         <li><strong>🌆 Cidade:</strong> {endereco.localidade}</li>
         <li><strong>🗺️ Estado:</strong> {endereco.uf}</li>
       </ul>
+
       <button
         onClick={copiarTexto}
-        className="mt-4 w-full bg-emerald-600 text-white font-medium py-2 rounded-md hover:bg-emerald-700 transition flex items-center justify-center gap-2"
+        className="mt-5 w-full bg-emerald-600 text-white font-medium py-2 rounded-md 
+        hover:bg-emerald-700 transition-all duration-300 flex items-center justify-center gap-2 animate-zoom-in"
       >
-        <FaClipboard />
-        {copiado ? 'Copiado!' : 'Copiar Endereço'}
+        {copiado ? (
+          <>
+            <FaCheck /> Copiado!
+          </>
+        ) : (
+          <>
+            <FaClipboard /> Copiar Endereço
+          </>
+        )}
       </button>
     </section>
   );
