@@ -5,6 +5,7 @@ import Resultado from './components/Resultado';
 import MensagemErro from './components/MensagemErro';
 
 function App() {
+ 
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
   const [erro, setErro] = useState('');
