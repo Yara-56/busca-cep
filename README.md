@@ -25,7 +25,7 @@ Aplicação simples e responsiva para consultar endereços a partir de um CEP (B
 
 ---
 
-## 🧪 Como rodar localmente
+🧪 Como rodar localmente
 
 ```bash
 # Clone o repositório
