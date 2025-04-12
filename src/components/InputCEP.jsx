@@ -1,3 +1,4 @@
+// Componente InputCEP.jsx responsivo (mobile first)
 import React, { useEffect, useRef } from 'react';
 import IMask from 'imask';
 import { FaSearchLocation } from 'react-icons/fa';
@@ -33,6 +34,9 @@ const InputCEP = ({ cep, setCep, onBuscar, carregando }) => {
         <input
           id="cep"
           ref={inputRef}
+          type="tel"
+          inputMode="numeric"
+          pattern="[0-9]*"
           className="w-full sm:flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           placeholder="Ex: 30140-071"
           required
