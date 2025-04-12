@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import InputCEP from './components/InputCEP';
+import Resultado from './components/Resultado';
+import MensagemErro from './components/MensagemErro';
 
 function App() {
   const [cep, setCep] = useState('');
@@ -25,7 +28,7 @@ function App() {
         setErro('');
       }
     } catch (err) {
-      setErro('Erro ao buscar o CEP. Tente novamente.');
+      setErro('Erro ao buscar o CEP. Verifique sua conexão.');
       setEndereco(null);
     }
   };
@@ -33,26 +36,9 @@ function App() {
   return (
     <div className="container">
       <h1>Busca de CEP</h1>
-      <input
-        type="text"
-        placeholder="Digite o CEP (somente números)"
-        value={cep}
-        onChange={(e) => setCep(e.target.value.replace(/\D/g, ''))}
-        maxLength={8}
-      />
-      <button onClick={buscarCep}>Buscar</button>
-
-      {erro && <p className="erro">{erro}</p>}
-
-      {endereco && (
-        <div className="resultado">
-          <p><strong>Logradouro:</strong> {endereco.logradouro}</p>
-          <p><strong>Complemento:</strong> {endereco.complemento || 'Não informado'}</p>
-          <p><strong>Bairro:</strong> {endereco.bairro}</p>
-          <p><strong>Cidade:</strong> {endereco.localidade}</p>
-          <p><strong>Estado:</strong> {endereco.uf}</p>
-        </div>
-      )}
+      <InputCEP cep={cep} setCep={setCep} onBuscar={buscarCep} />
+      {erro && <MensagemErro texto={erro} />}
+      {endereco && <Resultado endereco={endereco} />}
     </div>
   );
 }
