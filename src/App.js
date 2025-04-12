@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import './App.css';
 import InputCEP from './components/InputCEP';
 import Resultado from './components/Resultado';
 import MensagemErro from './components/MensagemErro';
 
 function App() {
- 
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState(null);
   const [erro, setErro] = useState('');
@@ -35,11 +33,20 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <h1>Busca de CEP</h1>
-      <InputCEP cep={cep} setCep={setCep} onBuscar={buscarCep} />
-      {erro && <MensagemErro texto={erro} />}
-      {endereco && <Resultado endereco={endereco} />}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+        <h1 className="text-2xl font-bold text-center text-blue-600 mb-2">🔍 Busca CEP</h1>
+        <p className="text-sm text-gray-600 text-center mb-4">
+          Seja bem-vindo(a) ao <strong>Busca CEP</strong>! Digite seu CEP abaixo para descobrir seu endereço completo.
+          <br />
+          Não sabe seu CEP? <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" rel="noreferrer" className="text-blue-500 underline">Clique aqui para procurar no site dos Correios</a>.
+        </p>
+
+        <InputCEP cep={cep} setCep={setCep} onBuscar={buscarCep} />
+
+        {erro && <MensagemErro texto={erro} />}
+        {endereco && <Resultado endereco={endereco} />}
+      </div>
     </div>
   );
 }
