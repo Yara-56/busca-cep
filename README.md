@@ -2,7 +2,6 @@
 
 Projeto React simples e profissional que permite consultar endereços a partir do número do CEP, utilizando a API pública do ViaCEP.
 
-![preview](https://busca-cep-blond.vercel.app/preview.png) <!-- Adicione imagem do site aqui, se desejar -->
 
 ---
 
